@@ -1,0 +1,30 @@
+{
+  "name": "koa-rest-mongoose",
+  "version": "1.0.0",
+  "description": "mongoose rest generator for koa",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luoyjx/koa-rest-mongoose.git"
+  },
+  "keywords": [
+    "koa",
+    "rest",
+    "mongoose",
+    "api"
+  ],
+  "author": "luoyjx <yjk99@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luoyjx/koa-rest-mongoose/issues"
+  },
+  "homepage": "https://github.com/luoyjx/koa-rest-mongoose#readme",
+  "dependencies": {
+    "koa": "^1.2.1",
+    "koa-body-parser": "^1.1.2",
+    "koa-router": "^5.4.0"
+  }
+}
