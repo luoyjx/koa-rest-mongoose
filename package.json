@@ -4,7 +4,7 @@
   "description": "mongoose rest generator for koa",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha ./test/**/*.test.js"
+    "test": "mocha test/**/*.test.js"
   },
   "repository": {
     "type": "git",
