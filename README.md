@@ -1,8 +1,8 @@
 # koa-rest-mongoose
 mongoose rest generator for koa
 [![NPM version](https://badge.fury.io/js/koa-rest-mongoose.svg)](http://badge.fury.io/js/koa-rest-mongoose) 
-[![Dependency Status](https://gemnasium.com/t3chnoboy/koa-rest-mongoose.svg)](https://gemnasium.com/t3chnoboy/koa-rest-mongoose) 
-[![Build Status](https://travis-ci.org/t3chnoboy/koa-rest-mongoose.svg?branch=master)](https://travis-ci.org/t3chnoboy/koa-rest-mongoose)
+[![Dependency Status](https://gemnasium.com/luoyjx/koa-rest-mongoose.svg)](https://gemnasium.com/luojx/koa-rest-mongoose) 
+[![Build Status](https://travis-ci.org/luoyjx/koa-rest-mongoose.svg?branch=master)](https://travis-ci.org/luoyjx/koa-rest-mongoose)
 
 
 # Installation
