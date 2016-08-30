@@ -1,7 +1,7 @@
 # koa-rest-mongoose
 mongoose rest generator for koa
 
-# useage
+# usage
 
 `npm install koa-rest-mongoose`
 
