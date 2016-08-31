@@ -34,7 +34,7 @@ describe('koa rest mongoose', function() {
       var saveGroup = [];
 
       for ( var i = 0, len = users.length; i < len; i++) {
-        yield saveGroup.push(users[i]);
+        yield model.create(users[i]);
       }
     })
 
