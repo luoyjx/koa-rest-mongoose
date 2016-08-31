@@ -31,9 +31,11 @@ describe('koa rest mongoose', function() {
   describe('routes', function(){
 
     beforeEach(function *() {
-      yield users.map(function(user) {
-        return model.create(user);
-      })
+      var saveGroup = [];
+
+      for ( var i = 0, len = users.length; i < len; i++) {
+        yield saveGroup.push(users[i]);
+      }
     })
 
     afterEach(function(done) {
