@@ -4,7 +4,7 @@
 
 mongoose rest generator for koa
 
-[![NPM](https://nodei.co/npm/koa-mongo-rest.png?downloads=true)](https://nodei.co/npm/koa-mongo-rest/)
+[![NPM](https://nodei.co/npm/koa-rest-mongoose.png?downloads=true)](https://nodei.co/npm/koa-rest-mongoose/)
 
 # Installation
 Install using npm:
