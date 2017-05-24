@@ -1,3 +1,4 @@
+'use strict';
 /**
  * test - index.js
  * @authors luoyjx (yjk99@qq.com)

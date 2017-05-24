@@ -1,3 +1,4 @@
+'use strict';
 /**
  * test - server.js
  * @authors yanjixiong
