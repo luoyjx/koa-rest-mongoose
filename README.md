@@ -5,12 +5,14 @@ mongoose rest generator for koa
 [![NPM](https://nodei.co/npm/koa-rest-mongoose.png?downloads=true)](https://nodei.co/npm/koa-rest-mongoose/)
 
 # Installation
-Install using npm:
-`npm install koa-rest-mongoose`
+
+```shell
+npm install koa-rest-mongoose
+```
 
 # example
 
-```
+```javascript
 var koa = require('koa');
 var router = require('koa-router')();
 
