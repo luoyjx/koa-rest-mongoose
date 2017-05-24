@@ -45,7 +45,7 @@ app.listen(process.env.PORT || 5000);
 ```
 # TODO feature
 
-- [ ] middlewares support`
+- [ ] middlewares support
 
 # API
 Following REST API is now created for you:
