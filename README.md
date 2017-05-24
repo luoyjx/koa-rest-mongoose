@@ -1,4 +1,6 @@
-# koa-rest-mongoose [![NPM version](https://badge.fury.io/js/koa-rest-mongoose.svg)](http://badge.fury.io/js/koa-rest-mongoose) [![Dependency Status](https://gemnasium.com/luoyjx/koa-rest-mongoose.svg)](https://gemnasium.com/luojx/koa-rest-mongoose) [![Build Status](https://travis-ci.org/luoyjx/koa-rest-mongoose.svg?branch=master)](https://travis-ci.org/luoyjx/koa-rest-mongoose)
+# koa-rest-mongoose 
+
+[![NPM version](https://badge.fury.io/js/koa-rest-mongoose.svg)](http://badge.fury.io/js/koa-rest-mongoose) [![Dependency Status](https://gemnasium.com/luoyjx/koa-rest-mongoose.svg)](https://gemnasium.com/luojx/koa-rest-mongoose) [![Build Status](https://travis-ci.org/luoyjx/koa-rest-mongoose.svg?branch=master)](https://travis-ci.org/luoyjx/koa-rest-mongoose)
 
 mongoose rest generator for koa
 
@@ -10,19 +12,16 @@ mongoose rest generator for koa
 npm install koa-rest-mongoose
 ```
 
-# example
+# Usage
 
 ```javascript
-var koa = require('koa');
-var router = require('koa-router')();
+const koa = require('koa');
+const mongoose = require('mongoose');
+const KoaRestMongoose = require('koa-rest-mongoose');
 
-var koaRestMongoose = require('koa-rest-mongoose');
-
-var mongoUrl = '127.0.0.1:27017/koa_rest_mongoose';
-var mongoose = require('mongoose');
-mongoose.connect(mongoUrl);
-
-var schema = new mongoose.Schema({
+// 1 step, mongoose
+const mongoUrl = '127.0.0.1:27017/koa_rest_mongoose';
+const schema = new mongoose.Schema({
   email: String,
   name: String,
   password: String,
@@ -31,15 +30,24 @@ var schema = new mongoose.Schema({
   lists: Array
 });
 
-var model = mongoose.model('user', schema);
+mongoose.connect(mongoUrl);
+mongoose.model('user', schema);
 
-var app = koa();
+// 2 step, koa and router
+const app = koa();
+const rest = KoaRestMongoose({
+  prefix: '/api'
+});
+app.use(rest.routes());
 
-koaRestMongoose(app, router, model, '/api');
-
+// 3 step, done
 app.listen(process.env.PORT || 5000);
 ```
+# TODO feature
 
+- [ ] middlewares support`
+
+# API
 Following REST API is now created for you:
 
 | HTTP Verb     | /users   | /users/:id |
