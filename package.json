@@ -1,9 +1,10 @@
 {
   "name": "koa-rest-mongoose",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "mongoose rest generator for koa",
   "main": "lib/index.js",
   "scripts": {
+    "lint": "eslint ./lib",
     "test": "mocha"
   },
   "repository": {
@@ -22,14 +23,19 @@
     "url": "https://github.com/luoyjx/koa-rest-mongoose/issues"
   },
   "homepage": "https://github.com/luoyjx/koa-rest-mongoose#readme",
+  "engines": {
+    "node": ">= 4.0.0"
+  },
   "dependencies": {
-    "koa-body-parser": "^1.1.2",
+    "bluebird": "^3.5.0",
+    "co-body": "^5.1.1",
+    "debug": "^2.6.8",
+    "koa-router": "^5.4.0",
     "mongoose": "^4.5.10"
   },
   "devDependencies": {
     "co-mocha": "^1.1.3",
     "koa": "^1.2.1",
-    "koa-router": "^5.4.0",
     "mocha": "^3.0.2",
     "should": "^11.1.0",
     "supertest": "^2.0.0"

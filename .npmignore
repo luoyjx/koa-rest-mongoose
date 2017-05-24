@@ -11,4 +11,5 @@ config.gypi
 CVS
 npm-debug.log
 test
-examples
+example
+node_modules

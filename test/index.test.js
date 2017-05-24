@@ -1,204 +1,201 @@
+'use strict';
 /**
  * test - index.js
  * @authors luoyjx (yjk99@qq.com)
  * @date    2016-08-29 22:37:50
  */
 
-var server = require('./server');
-var model = server.model;
-var request = require('supertest').agent(server.listen());
+const server = require('./server');
+const model = server.models.user;
+const request = require('supertest').agent(server.listen());
 
-var users = [
+const users = [
   {
     name: 'Fronk',
-    age : 28,
-    _id : 1
+    age: 28,
+    _id: 1
   },
   {
     name: 'Joff',
-    age : 27,
-    _id : 2
+    age: 27,
+    _id: 2
   },
   {
     name: 'Scoobert',
-    age : 54,
-    _id : 3  
+    age: 54,
+    _id: 3
   }
 ];
+/* eslint-disable no-undef */
+describe('koa rest mongoose', function () {
 
-describe('koa rest mongoose', function() {
-  
-  describe('routes', function(){
+  describe('routes', function () {
 
     beforeEach(function *() {
-      var saveGroup = [];
-
-      for ( var i = 0, len = users.length; i < len; i++) {
+      for (let i = 0, len = users.length; i < len; i++) {
         yield model.create(users[i]);
       }
-    })
+    });
 
-    afterEach(function(done) {
-      model.remove({}, function (){
+    afterEach(function (done) {
+      model.remove({}, function () {
         done();
       });
-    })
+    });
 
-    describe('GET', function() {
+    describe('GET', function () {
 
-      describe('GET /:model', function() {
-        
-        it('should respond with JSON for all records', function(done) {
+      describe('GET /:model', function () {
+
+        it('should respond with JSON for all records', function (done) {
           request
             .get('/user')
             .expect(200)
             .expect('Content-Type', /json/)
             .expect(users)
             .end(done);
-        })
+        });
 
-      })
+      });
 
-      describe('GET /:model/:id', function() {
-        it('should respond with JSON for the record with the specified id', function(done) {
+      describe('GET /:model/:id', function () {
+        it('should respond with JSON for the record with the specified id', function (done) {
           request
             .get('/user/2')
             .expect(200)
             .expect('Content-Type', /json/)
             .expect({
-              name : 'Joff',
-              age  :  27,
-              _id  :  2
+              name: 'Joff',
+              age: 27,
+              _id: 2
             })
             .end(done);
-        })
-      })
-    })
-    
+        });
+      });
+    });
 
-    describe('POST', function(){
+    describe('POST', function () {
 
-      describe('POST /:model', function() {
-        it('should respond with JSON for the created record', function(done) {
+      describe('POST /:model', function () {
+        it('should respond with JSON for the created record', function (done) {
           request
             .post('/user')
             .send({
-              name : 'James',
-              age  :  40,
-              _id  :  4
+              name: 'James',
+              age: 40,
+              _id: 4
             })
             .expect(201)
             .expect({
-              name : 'James',
-              age  : 40,
-              _id  : 4
+              name: 'James',
+              age: 40,
+              _id: 4
             })
-            .end(done)
+            .end(done);
         });
       });
 
-      describe('POST /:model/:id', function() {
-        it('should respond with JSON for the updated record', function(done) {
+      describe('POST /:model/:id', function () {
+        it('should respond with JSON for the updated record', function (done) {
           request
             .post('/user/2')
             .send({
-              age : 28
+              age: 28
             })
             .expect(200)
             .expect({
-              name : 'Joff',
-              age  : 28,
-              _id  : 2
+              name: 'Joff',
+              age: 28,
+              _id: 2
             })
-            .end(done)
+            .end(done);
         });
       });
-    })
+    });
 
-    describe('DELETE', function() {
+    describe('DELETE', function () {
 
-      describe('DELETE /:model/:id', function() {
-        it('should respond with JSON for the destroyed record', function(done) {
+      describe('DELETE /:model/:id', function () {
+        it('should respond with JSON for the destroyed record', function (done) {
           request
             .del('/user/2')
             .expect(200)
             .expect({
-              name : 'Joff',
-              age  : 27,
-              _id  : 2
+              name: 'Joff',
+              age: 27,
+              _id: 2
             })
-            .end(done)
+            .end(done);
         });
       });
 
     });
 
-    describe('PUT', function() {
+    describe('PUT', function () {
 
-      describe('PUT /:model', function() {
-        it('should respond with JSON for the created record', function(done) {
+      describe('PUT /:model', function () {
+        it('should respond with JSON for the created record', function (done) {
           request
             .put('/user')
             .send({
-              name : 'John',
-              age  : 26,
-              _id  : 5
+              name: 'John',
+              age: 26,
+              _id: 5
             })
             .expect(201)
             .expect({
-              name : 'John',
-              age  : 26,
-              _id  : 5
+              name: 'John',
+              age: 26,
+              _id: 5
             })
-            .end(done)
+            .end(done);
         });
       });
 
-      describe('PUT /:model/:id', function() {
-        it('should return JSON for the replaced record', function(done) {
+      describe('PUT /:model/:id', function () {
+        it('should return JSON for the replaced record', function (done) {
           request
             .put('/user/2')
             .send({
-              name : 'Joseph',
-              age  : 37
+              name: 'Joseph',
+              age: 37
             })
             .expect(200)
             .expect({
-              name : 'Joseph',
-              age  : 37,
-              _id  : 2
+              name: 'Joseph',
+              age: 37,
+              _id: 2
             })
-            .end(done)
+            .end(done);
         });
       });
 
     });
 
-    describe('PATCH', function() {
+    describe('PATCH', function () {
 
-      describe('PATCH /:model/:id', function() {
-        it('should respond with JSON for the updated record', function(done) {
+      describe('PATCH /:model/:id', function () {
+        it('should respond with JSON for the updated record', function (done) {
           request
             .patch('/user/2')
             .send({
-              age : 28
+              age: 28
             })
             .expect(200)
             .expect({
-              name : 'Joff',
-              age  : 28,
-              _id  : 2
+              name: 'Joff',
+              age: 28,
+              _id: 2
             })
-            .end(done)
+            .end(done);
         });
       });
     });
 
-
-    after(function(done) {
+    after(function (done) {
       model.db.close(done);
-    })
+    });
 
-  })
+  });
 
-})
+});

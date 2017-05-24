@@ -1,28 +1,34 @@
+'use strict';
 /**
  * test - server.js
  * @authors yanjixiong
  * @date    2016-08-30 11:04:51
  */
 
-var koa = require('koa');
-var router = require('koa-router')();
+const koa = require('koa');
+const mongoose = require('mongoose');
+const KoaRestMongoose = require('../lib/index');
 
-var koaRestMongoose = require('../lib/index');
+const mongoUrl = '127.0.0.1:27017/koa_rest_mongoose';
 
-var mongoUrl = '127.0.0.1:27017/koa_rest_mongoose';
-var mongoose = require('mongoose');
+// mongoose
 mongoose.connect(mongoUrl);
 
-var app = koa();
-
-var schema = new mongoose.Schema({
+const schema = new mongoose.Schema({
   name: String,
   age: Number,
   _id: Number
-}, {versionKey: false});
+}, { versionKey: false });
 
-var model = app.model = mongoose.model('user', schema);
+mongoose.model('user', schema);
 
-koaRestMongoose(app, router, model);
+// koa
+const app = koa();
+
+const restMongoose = new KoaRestMongoose();
+
+app.use(restMongoose.routes());
+
+app.models = restMongoose.models;
 
 module.exports = app;
