@@ -1,8 +1,8 @@
 # koa-rest-mongoose 
 
-[![npm](https://img.shields.io/npm/v/koa-rest-mongoose.svg)](https://www.npmjs.com/package/koa-rest-mongoose) [![Dependency Status](https://gemnasium.com/luoyjx/koa-rest-mongoose.svg)](https://gemnasium.com/luojx/koa-rest-mongoose) [![Build Status](https://travis-ci.org/luoyjx/koa-rest-mongoose.svg?branch=master)](https://travis-ci.org/luoyjx/koa-rest-mongoose)
+[![npm](https://img.shields.io/npm/v/koa-rest-mongoose.svg)](https://www.npmjs.com/package/koa-rest-mongoose) [![Build Status](https://travis-ci.org/luoyjx/koa-rest-mongoose.svg?branch=master)](https://travis-ci.org/luoyjx/koa-rest-mongoose)
 
-mongoose rest generator for koa
+mongoose rest generator for koa1
 
 [![NPM](https://nodei.co/npm/koa-rest-mongoose.png?downloads=true)](https://nodei.co/npm/koa-rest-mongoose/)
 
